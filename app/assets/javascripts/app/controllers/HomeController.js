@@ -1,6 +1,6 @@
 function HomeController(){
   this.unit = "YO, you got street?";
-}
+};
 
 angular
     .module('app')
