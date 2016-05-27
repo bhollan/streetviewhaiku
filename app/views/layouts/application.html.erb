@@ -6,11 +6,13 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
-<body ng-app="app">
+<body>
+  <div ng-app="app">
 
-  STEVE!
-  <%= @fred.id %>
-  <ui-view></ui-view>
+    STEVE!
+    <%= @fred.id %>
+    <ui-view></ui-view>
 
+  </div>
 </body>
 </html>
