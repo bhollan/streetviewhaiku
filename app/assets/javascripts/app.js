@@ -15,12 +15,12 @@ angular
         .state('words.browse',{
           url: '/browse',
           templateUrl: 'app/views/words/browse.html',
-          controller: 'BrowseWordsController as worder'
+          controller: 'BrowseWordsController as wordbrowser'
         })
         .state('words.check',{
           url: '/check',
           templateUrl: 'app/views/words/check.html',
-          controller: 'CheckWordsController as checker'
+          controller: 'CheckWordsController as wordchecker'
         });
       $urlRouterProvider.otherwise('/');
     });
