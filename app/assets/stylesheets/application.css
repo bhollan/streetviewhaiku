@@ -11,11 +11,11 @@
  * file per style scope.
  *
  *= require_tree .
- *@import "bootstrap-sprockets"
- *@import "bootstrap"
  *= require bootstrap/dist/css/bootstrap
  *= require_self
  */
+@import "bootstrap-sprockets"
+@import "bootstrap"
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url('../assets/bootstrap/fonts/glyphicons-halflings-regular.eot');
