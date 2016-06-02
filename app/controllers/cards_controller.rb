@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   def create
-    respond_with Card.create()
+    respond_with Card.create(card_params)
   end
 
   def show

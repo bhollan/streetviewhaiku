@@ -11,10 +11,11 @@ function CardsController(backEndService){
   };
 
   this.createCard = function(){
-    backEndService.newCard();
+    if(ctrl.submission || ctrl.submission!==""){
+      backEndService.newCard({'word':ctrl.submission});
+    }
   };
 
-  //{'word':'thteven'}
 
 }
 
