@@ -1,0 +1,18 @@
+<h3>Find new image</h3>
+
+<input
+     ng-model="cards.submission"
+     ng-model-options="{updateOn: 'default blur',
+             debounce: {'default':400, 'blur':0}}">
+</input><br>
+
+<img ng-src="{{ check.BASE_URL}} +
+             {{ cards.submission }}">
+<br>
+
+<form ng-submit="cards.createCard()">
+  <input type='button'
+      value="Add Entry"
+      ng-click="check.logEntry()">
+  </input>
+</form>

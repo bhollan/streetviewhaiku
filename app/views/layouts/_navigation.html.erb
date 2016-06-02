@@ -1,37 +1,26 @@
-<nav class="navbar navbar-default navbar-static-top navbar-inverse">
+<nav class="navbar navbar-default navbar-inverse">
   <div class="container">
     <ul class="nav navbar-nav">
       <li>
-        <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
+        <a ui-sref="home"><span class="glyphicon glyphicon-home"></span> Home</a>
       </li>
       <li>
-        <a ui-sref="words"><span class="glyphicon glyphicon-tag"></span> Words</span></a>
-      </li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-picture"></span> Haiku<span class="caret"></span></a>
-        <ul class="dropdown-menu" role="menu">
-          <li>
-            May
-          </li>
-          <li>
-            June
-          </li>
-          <li>
-            July
-          </li>
-        </ul>
+        <a ui-sref="cards"><span class="glyphicon glyphicon-picture"></span> Cards</span></a>
       </li>
       <li>
-        Soul
+        <a ui-sref="cards.browse"><span class="glyphicon glyphicon-list-alt"></span> Browse</span></a>
+      </li>
+      <li>
+        <a ui-sref="cards.check"><span class="glyphicon glyphicon-tag"></span> Check</span></a>
       </li>
 
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li class="navbar-right">
-        Heart
+      <li class="nav navbar-right">
+        <a ui-sref="home"><span class="glyphicon glyphicon-user"></span> Me</a>
       </li>
-      <li class="navbar-right">
-        Boogie
+      <li class="nav navbar-right">
+        <a ui-sref="home"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
       </li>
     </ul>
   </div>

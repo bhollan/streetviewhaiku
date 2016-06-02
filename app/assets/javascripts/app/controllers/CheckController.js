@@ -1,7 +1,6 @@
-function CheckWordsController(googleStreetViewService){
+function CheckController(googleStreetViewService, backEndService){
   var ctrl = this;
 
-  this.submission = '';
   this.BASE_URL = 'https://maps.googleapis.com/maps/api/streetview?size=600x300&heading=151.78&pitch=-0.76&location=';
 
   this.showResult = function(){
@@ -14,4 +13,4 @@ function CheckWordsController(googleStreetViewService){
 
 angular
     .module('app')
-    .controller('CheckWordsController', CheckWordsController);
+    .controller('CheckController', CheckController);

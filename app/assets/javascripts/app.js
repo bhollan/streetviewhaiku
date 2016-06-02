@@ -5,22 +5,22 @@ angular
         .state('home',{
           url: '/',
           templateUrl: 'app/views/home.html',
-          controller: 'HomeController as home'
+          controller: 'CardsController as cards'
         })
-        .state('words',{
-          url: '/words',
-          templateUrl: 'app/views/words.html',
-          controller: 'WordsController as words'
+        .state('cards',{
+          url: '/cards',
+          templateUrl: 'app/views/cards.html',
+          controller: 'CardsController as cards'
         })
-        .state('words.browse',{
+        .state('cards.browse',{
           url: '/browse',
-          templateUrl: 'app/views/words/browse.html',
-          controller: 'BrowseWordsController as wordbrowser'
+          templateUrl: 'app/views/cards/browse.html',
+          controller: 'BrowseController as browse'
         })
-        .state('words.check',{
+        .state('cards.check',{
           url: '/check',
-          templateUrl: 'app/views/words/check.html',
-          controller: 'CheckWordsController as wordchecker'
+          templateUrl: 'app/views/cards/check.html',
+          controller: 'CheckController as check'
         });
-      $urlRouterProvider.otherwise('/');
+      $urlRouterProvider.otherwise('home');
     });

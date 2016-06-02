@@ -1,0 +1,12 @@
+<h3>Browse words saved by all users</h3>
+
+<div class="col-md-6">
+  <div class="card-word"
+    ng-repeat="card in browse.deck"
+    ng-click="cards.setBrowsed()">{{ card.word }}</div>
+</div>
+
+<div class="col-md-6">
+  <img ng-src="{{ browse.BASE_URL}} +
+               {{ cards.browsed }}">
+</div>
