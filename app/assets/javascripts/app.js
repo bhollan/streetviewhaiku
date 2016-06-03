@@ -1,11 +1,31 @@
 angular
-    .module('app', ['ui.router', 'templates'])
+    .module('app', ['ui.router', 'templates', 'Devise'])
     .config(function($stateProvider, $urlRouterProvider){
       $stateProvider
         .state('home',{
           url: '/',
           templateUrl: 'app/views/home.html',
           controller: 'CardsController as cards'
+        })
+        .state('login',{
+          url: '/login',
+          templateUrl: 'app/views/_login.html',
+          controller: 'AuthController',
+          onEnter: ['$state', 'Auth', function($state, Auth){
+            Auth.currentUser().then(function(user){
+              $state.go('home');
+            })
+          }]
+        })
+        .state('register',{
+          url: '/register',
+          templateUrl: 'app/views/_register.html',
+          controller: 'AuthController',
+          onEnter: ['$state', 'Auth', function($state, Auth){
+            Auth.currentUser().then(function(user){
+              $state.go('home');
+            })
+          }]
         })
         .state('cards',{
           url: '/cards',

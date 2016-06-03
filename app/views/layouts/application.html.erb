@@ -10,7 +10,7 @@
 <body class="<%= controller_name %> <%= action_name %>">
   <div ng-app="app">
 
-    <%= render partial: 'layouts/navigation' %>
+    <div ng-include="'app/views/_nav.html'"></div>
     <ui-view></ui-view>
 
   </div>
