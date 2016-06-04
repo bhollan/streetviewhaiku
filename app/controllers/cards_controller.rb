@@ -1,4 +1,6 @@
 class CardsController < ApplicationController
+  before_filter :authenticate_user!, only: [:create]
+
   def create
     respond_with Card.create(card_params)
   end
