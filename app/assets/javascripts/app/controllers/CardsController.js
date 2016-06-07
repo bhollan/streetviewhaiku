@@ -1,4 +1,4 @@
-function CardsController(backEndService){
+function CardsController(backEndService, googleStreetViewService){
   var ctrl = this;
 
   this.submission = '';
