@@ -19,6 +19,10 @@ function backEndService($http){
     return $http.get('/users/' + id + '.json');
   };
 
+  this.changePublic = function(id){
+    return $http.patch('/cards/' + id + '.json');
+  };
+
 }
 
 angular

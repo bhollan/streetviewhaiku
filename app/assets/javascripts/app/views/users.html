@@ -1,4 +1,4 @@
-<h2>THIS IS ME!</h2>
+<h2>THIS IS <span>{{ users.current_user.username || "ME"}}</span>!</h2>
 <h3>Browse your words and your starred words</h3>
 
 <div class="col-md-6">
@@ -33,16 +33,23 @@
         Word: {{ users.browsed.word }}
       </li>
       <li>
+        Owner: {{ users.browsed.username }}
+      </li>
+      <li>
+        Public: {{ users.browsed.public }}
+      </li>
+      <li>
         Created: {{ users.browsed.created_at | timeAgo }}
       </li>
       <li>
         Stars: {{ users.browsed.star_count }}
       </li>
     </ul>
-    <!-- <form ng&#45;submit="cards.addStar()"> -->
-    <!--   <div class="input&#45;group"> -->
-    <!--     <input type='submit' id="star_button" class="btn btn&#45;default" value="Star"></input> -->
-    <!--   </div> -->
-    <!-- </form> -->
+    <form ng-show="users.editable()" 
+          ng-submit="users.togglePublic()">
+      <div class="input-group">
+        <input type='submit' id="public_button" class="btn btn-default" value="Toggle Publicity"></input>
+      </div>
+    </form>
   </div>
 </div>

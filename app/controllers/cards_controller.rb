@@ -14,6 +14,13 @@ class CardsController < ApplicationController
     respond_with Card.find(params[:id])
   end
 
+  def update
+    card = Card.find(params[:id])
+    card.public = !card.public
+    card.save
+    respond_with card
+  end
+
   def index
     respond_with Card.all
   end

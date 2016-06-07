@@ -3,7 +3,6 @@ function CardsController(backEndService){
 
   this.submission = '';
   this.browsed =  this.browsed || backEndService.browsed;
-  this.unit = "OORAH!";
 
   this.setBrowsed = function(){
     ctrl.browsed = angular.fromJson(event.target.attributes.data_card.value);

@@ -1,33 +1,53 @@
 <h3>Browse words saved by all users</h3>
 
-<div class="col-md-6">
-  <div class="card-word"
-    ng-repeat="card in browse.deck"
-    ng-click="cards.setBrowsed()" data_card="{{ card }}">{{ card.word }}</div>
+<div class="col-md-12">
+  <form name="sortChoice">
+    <div class="col-md-1">
+    <label for="sortSelect">Sort by: </label><br>
+    <select name="sortSelect" ng-model="browse.sorterator">
+      <option value="'created_at'">Newness</option>
+      <option value="'star_count'">Popularity</option>
+      <option value="'word'">Alphabet</option>
+    </select>
+    </div>
+    <div class="col-md-1">
+      <label for="searchBox"> Search:</label><br>
+      <input name="searchBox" id="searchBox" ng-model="users.searchText"></input><br>
+    </div>
+  </form>
 </div>
+<div>
+  <div class="col-md-6">
+    <div class="card-word"
+         ng-repeat="card in browse.deck | filter:users.searchText | orderBy:browse.sorterator"
+         ng-click="cards.setBrowsed()" data_card="{{ card }}">
+      {{ card.word }}
+    </div>
+  </div>
 
-<div class="col-md-6">
-  <img ng-src="{{ browse.BASE_URL}} +
-               {{ cards.browsed.word }}">
-  <div ng-if="cards.browsed">
-    <ul>
-      <li>
-        Word: {{ cards.browsed.word }}
-      </li>
-      <li>
-        Created: {{ cards.browsed.created_at | timeAgo }}
-      </li>
-      <li ng-if="cards.browsed.username">
-        Owner: {{ cards.browsed.username }}
-      </li>
-      <li>
-        Stars: {{ cards.browsed.star_count }}
-      </li>
-    </ul>
-    <form ng-submit="cards.addStar()">
-      <div class="input-group">
-        <input type='submit' id="star_button" class="btn btn-default" value="Star"></input>
-      </div>
-    </form>
+  <div class="col-md-6">
+    <img ng-src="{{ browse.BASE_URL}} +
+    {{ cards.browsed.word }}">
+    <div ng-if="cards.browsed">
+      <ul>
+        <li>
+          Word: {{ cards.browsed.word }}
+        </li>
+        <li>
+          Created: {{ cards.browsed.created_at | timeAgo }}
+        </li>
+        <li ng-if="cards.browsed.username">
+          Owner: <a ui-sref="users({ userID: cards.browsed.user_id })">{{ cards.browsed.username }}</a>
+        </li>
+        <li>
+          Stars: {{ cards.browsed.star_count }}
+        </li>
+      </ul>
+      <form ng-submit="cards.addStar()">
+        <div class="input-group">
+          <input type='submit' id="star_button" class="btn btn-default" value="Star"></input>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

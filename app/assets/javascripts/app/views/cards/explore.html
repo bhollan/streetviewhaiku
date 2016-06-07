@@ -1,1 +1,11 @@
-<h2>Charles Muntz</h2>
+<h2>Cool, right?</h2>
+<div>
+  <div class="col-md-6"
+    ng-repeat="card in explore.deck"
+    data_card={{ card }}>
+    <a ui-sref="cards.browse" ng-click="cards.setBrowsed()">
+      <img ng-src="{{ explore.BASE_URL}} +
+                   {{ card.word }}">
+    </a>
+  </div>
+</div>

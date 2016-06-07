@@ -1,14 +1,10 @@
-function BrowseController(googleStreetViewService, backEndService){
+function BrowseController(backEndService){
   var ctrl = this;
 
   this.BASE_URL = backEndService.BASE_URL;
   this.deck = [];
-
-  this.showResult = function(){
-    if (ctrl.submission){
-      ctrl.image = googleStreetViewService.getStreetView(ctrl.browsed);
-    };
-  };
+  this.sorterator = "'created_at'";
+  this.searchText = "";
 
   if (this.deck){
     backEndService.getDeck().then(function(response){
