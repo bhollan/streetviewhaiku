@@ -1,4 +1,4 @@
-function AuthController ($scope, $state, Auth){
+function AuthController ($scope, $state, $window, Auth){
   $scope.login = function(){
     Auth.login($scope.user).then(function(){
       $state.go('home');
@@ -9,6 +9,10 @@ function AuthController ($scope, $state, Auth){
     Auth.register($scope.user).then(function(){
       $state.go('home');
     });
+  };
+
+  $scope.logout = function(){
+    $window.location.reload();
   };
 };
 

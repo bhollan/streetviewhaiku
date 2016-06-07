@@ -1,0 +1,48 @@
+<h2>THIS IS ME!</h2>
+<h3>Browse your words and your starred words</h3>
+
+<div class="col-md-6">
+  <h3>Your Cards({{ users.deck.length }}):</h3>
+  <div class="card-word"
+    ng-repeat="card in users.deck"
+    ng-click="users.setBrowsed()" data_card="{{ card }}">
+    {{ card.word }}
+  </div>
+
+  <h3>Cards You Starred({{ users.starred_cards.length }}):</h3>
+  <div class="card-word"
+    ng-repeat="card in users.starred_cards"
+    ng-click="users.setBrowsed()" data_card="{{ card }}">
+    {{ card.word }}
+  </div>
+
+  <h3>Your Cards with Stars({{ users.cards_starred.length }}):</h3>
+  <div class="card-word"
+    ng-repeat="card in users.cards_starred"
+    ng-click="users.setBrowsed()" data_card="{{ card }}">
+    {{ card.word }}
+  </div>
+</div>
+
+<div class="col-md-6">
+  <img ng-src="{{ users.BASE_URL}} +
+               {{ users.browsed.word }}">
+  <div ng-if="users.browsed">
+    <ul>
+      <li>
+        Word: {{ users.browsed.word }}
+      </li>
+      <li>
+        Created: {{ users.browsed.created_at | timeAgo }}
+      </li>
+      <li>
+        Stars: {{ users.browsed.star_count }}
+      </li>
+    </ul>
+    <!-- <form ng&#45;submit="cards.addStar()"> -->
+    <!--   <div class="input&#45;group"> -->
+    <!--     <input type='submit' id="star_button" class="btn btn&#45;default" value="Star"></input> -->
+    <!--   </div> -->
+    <!-- </form> -->
+  </div>
+</div>

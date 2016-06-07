@@ -9,4 +9,5 @@
 //= require angular
 //= require angular-ui-router
 //= require AngularDevise
+//= require angular-timeago
 //= require_tree .

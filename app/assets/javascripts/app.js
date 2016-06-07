@@ -1,5 +1,9 @@
 angular
-    .module('app', ['ui.router', 'templates', 'Devise'])
+    .module('app', [
+        'ui.router',
+        'templates',
+        'Devise',
+        'yaru22.angular-timeago'])
     .config(function($stateProvider, $urlRouterProvider){
       $stateProvider
         .state('home',{
@@ -13,6 +17,7 @@ angular
           controller: 'AuthController',
           onEnter: ['$state', 'Auth', function($state, Auth){
             Auth.currentUser().then(function(user){
+              //redirect authenticated users to 'home'
               $state.go('home');
             })
           }]
@@ -23,14 +28,25 @@ angular
           controller: 'AuthController',
           onEnter: ['$state', 'Auth', function($state, Auth){
             Auth.currentUser().then(function(user){
+              //redirect authenticated users to 'home'
               $state.go('home');
             })
           }]
+        })
+        .state('users',{
+          url: '/users/:userID',
+          templateUrl:'app/views/users.html',
+          controller: 'UsersController as users'
         })
         .state('cards',{
           url: '/cards',
           templateUrl: 'app/views/cards.html',
           controller: 'CardsController as cards'
+        })
+        .state('cards.explore',{
+          url: '/explore',
+          templateUrl: 'app/views/cards/explore.html',
+          controller: 'ExploreController as explore'
         })
         .state('cards.browse',{
           url: '/browse',

@@ -2,7 +2,12 @@ class CardsController < ApplicationController
   before_filter :authenticate_user!, only: [:create]
 
   def create
-    respond_with Card.create(card_params)
+    card = Card.find_by(card_params)
+    if card
+      respond_with card
+    else
+      respond_with Card.create(card_params.merge(user_id: current_user.id, username: current_user.username))
+    end
   end
 
   def show

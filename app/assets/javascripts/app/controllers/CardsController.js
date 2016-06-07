@@ -1,13 +1,12 @@
 function CardsController(backEndService){
   var ctrl = this;
 
-  this.test = 'YES!';
   this.submission = '';
   this.browsed =  this.browsed || backEndService.browsed;
   this.unit = "OORAH!";
 
   this.setBrowsed = function(){
-    ctrl.browsed = event.target.textContent;
+    ctrl.browsed = angular.fromJson(event.target.attributes.data_card.value);
   };
 
   this.createCard = function(){
@@ -16,6 +15,11 @@ function CardsController(backEndService){
     }
   };
 
+  this.addStar = function(){
+    if(ctrl.browsed){
+      backEndService.newStar({'word':ctrl.browsed});
+    }
+  };
 
 }
 
