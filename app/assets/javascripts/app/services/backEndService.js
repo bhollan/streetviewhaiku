@@ -3,6 +3,9 @@ function backEndService($http){
   this.browsed = '';
   this.BASE_URL = 'https://maps.googleapis.com/maps/api/streetview?size=600x300&heading=151.78&pitch=-0.76&location=';
 
+  //key not for access/security, just for metrics
+  this.API_KEY = '&key=AIzaSyDpBxnXwOB7uhkOI9GUdLx6ow_o6EpYxsk';
+
   this.getDeck = function(){
     return $http.get('/cards.json');
   };

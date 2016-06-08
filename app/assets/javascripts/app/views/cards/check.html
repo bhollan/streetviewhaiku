@@ -6,8 +6,9 @@
              debounce: {'default':400, 'blur':0}}">
 </input><br>
 
-<img ng-src="{{ check.BASE_URL}} +
-             {{ cards.submission }}">
+<img ng-src="{{ check.BASE_URL}}
+             {{ cards.submission }}
+             {{ check.API_KEY }}">
 <br>
 
 <form ng-submit="cards.createCard()">

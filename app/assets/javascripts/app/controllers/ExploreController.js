@@ -2,6 +2,7 @@ function ExploreController(backEndService){
   var ctrl = this;
 
   this.BASE_URL = backEndService.BASE_URL;
+  this.API_KEY = backEndService.API_KEY;
   this.deck = [];
 
   if (this.deck){

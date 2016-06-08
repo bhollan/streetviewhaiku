@@ -5,7 +5,8 @@
     <a ui-sref="cards.browse" ng-click="cards.setBrowsed()">
       <img data_card="{{ card }}"
       ng-src="{{ explore.BASE_URL}} +
-                   {{ card.word }}">
+              {{ card.word }} +
+              {{ explore.API_KEY }}">
     </a>
   </div>
 </div>

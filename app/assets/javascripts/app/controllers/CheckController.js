@@ -1,7 +1,8 @@
 function CheckController(googleStreetViewService, backEndService){
   var ctrl = this;
 
-  this.BASE_URL = 'https://maps.googleapis.com/maps/api/streetview?size=600x300&heading=151.78&pitch=-0.76&location=';
+  this.BASE_URL = backEndService.BASE_URL;
+  this.API_KEY = backEndService.API_KEY;
 
   this.showResult = function(){
     if (ctrl.submission){

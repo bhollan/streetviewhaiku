@@ -2,6 +2,7 @@ function BrowseController(backEndService){
   var ctrl = this;
 
   this.BASE_URL = backEndService.BASE_URL;
+  this.API_KEY = backEndService.API_KEY;
   this.deck = [];
   this.sorterator = "'created_at'";
   this.searchText = "";
@@ -11,7 +12,6 @@ function BrowseController(backEndService){
       angular.copy(response.data, ctrl.deck);
     });
   }
-
 }
 
 angular
